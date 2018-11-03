@@ -36,6 +36,7 @@ uint8_t OWBus::getDeviceCount(void){
 #include <OWBus/DS28EA00.h>
 #include <OWBus/DS2413.h>
 #include <OWBus/DS2406.h>
+#include <OWBus/DS18S20.h>
 
 bool OWBus::launchTemperatureAcquisition(bool parasite){
 	OneWire *ow = this->getOWTechLayer();
@@ -53,6 +54,8 @@ const char *OWBus::Address::getFamily(){
 	switch(addr[0]){
 	case DS18B20::FAMILY_CODE :
 		return "DS18B20";
+	case DS18S20::FAMILY_CODE :
+		return "DS18S20";		
 	case DS28EA00::FAMILY_CODE:
 		return "DS28EA00";
 	case DS2406::FAMILY_CODE:
